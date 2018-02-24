@@ -19,7 +19,7 @@
 title: Starter Jekyller Site
 email: youremail@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://jekyller.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Jekyller API urls from Jekyller serverless aws lambdas.  You must deploy
 # Jekyller services on amazon aws. 
