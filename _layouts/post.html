@@ -1,0 +1,40 @@
+<html>
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{site.baseurl}}css/main.css">            
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
+    <body>
+        <div class="container">
+                {% include mainmenu.html %}                    
+                <div style="float:right">
+                    <a href="#" id="save" style="margin-right:20px;"><i class="far fa-save"></i></a>
+                    <a href="#" id="edit"><i class="fas fa-edit"></i></a>
+                </div>
+                <div class="row">
+                <div class="PageNavigation">
+                    {% if page.previous.url %}
+                        <a class="prev" href="{{site.baseurl}}{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+                    {% endif %}
+                    {% if page.next.url %}
+                        <a class="next" href="{{site.baseurl}}{{page.next.url}}">{{page.next.title}} &raquo;</a>
+                    {% endif %}
+                </div>
+                          
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                <h1>{{page.title}}</h1>
+                <article id="content" data-name="{{page.date | date: '%Y-%m-%d-'}}{{page.title}}" data-title="{{page.title}}" data-date="{{page.date}}">
+                    {{content}}
+                </article>
+                </div>
+                <div class="col-md-4">
+                        {% include blogpost.list.html %}
+                    </div>        
+            </div>
+        </div>
+        {% include mainscripts.html asPost=true %}
+    </body>
+</html>

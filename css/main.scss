@@ -1,0 +1,22 @@
+---
+---
+.PageNavigation {
+    display: bock;
+    width: 100%;
+    
+   a {
+    display: block;
+    width: 50%;
+    float: left;
+    margin: 1em 0;
+  }
+  
+  .next {
+      float:right;
+    text-align: right;
+  }
+}
+
+#save {
+    display:none;
+}
