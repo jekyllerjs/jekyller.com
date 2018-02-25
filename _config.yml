@@ -24,8 +24,8 @@ url: "http://jekyller.com" # the base hostname & protocol for your site, e.g. ht
 # Jekyller API urls from Jekyller serverless aws lambdas.  You must deploy
 # Jekyller services on amazon aws. 
 # https://github.com/kusog/jekyller-services
-createPostUrl: https://[your amazon lambda api].amazonaws.com/dev/createPost
-updateContentUrl: https://[your amazon lambda api].amazonaws.com/dev/updateContent
+createPostUrl: https://90pwj9lg4b.execute-api.us-east-1.amazonaws.com/dev/createPost
+updateContentUrl: https://90pwj9lg4b.execute-api.us-east-1.amazonaws.com/dev/updateContent
 
 # Build settings
 markdown: kramdown
