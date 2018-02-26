@@ -14,7 +14,7 @@
             <a href="#" id="edit"><i class="fas fa-edit"></i></a>
             </div>
         <div class="row"><div class="col-md-8">
-            <article {% if !page.asPost %}id="content"{% endif %}>
+            <article {% if page.asPost != true %}id="content"{% endif %}>
                 {{content}}
             </article>
         </div>
