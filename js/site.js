@@ -2,5 +2,6 @@
 ---
 var jekyllerSiteOptions = {
     createPostUrl: "{{site.createPostUrl}}",
-    updateContentUrl: "{{site.updateContentUrl}}"
+    updateContentUrl: "{{site.updateContentUrl}}",
+    loginUrl: "{{site.loginUrl}}"
 };

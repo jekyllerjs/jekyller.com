@@ -1,6 +1,10 @@
 <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
+        
         <a href = "{{site.realBaseUrl}}">Home</a>
-        <a href="{{site.realBaseUrl}}newpost.html">Create Post</a>
+        <div id="right-menu">
+            <a href="{{site.realBaseUrl}}newpost.html" class="edit-controls" style="display:none">Create Post</a>
+            <div id="login-menu" style="display:inline-block"></div>
+        </div>
     </nav>
 </div>

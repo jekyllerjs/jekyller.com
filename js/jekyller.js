@@ -11,6 +11,72 @@
         contentSelector: "#content"
     };
 
+    function setupUserState(options) {
+        var user = window.localStorage.jkUser;
+        user = user ? JSON.parse(user) : null;
+
+
+        function setupMenu() {
+            $("#login-menu").html("");
+            if(user) {
+                $("#login-menu").load("/fragments/loggedin.user.menu.html", function() {
+                    $(".loggedin-menu").append(user.displayName);
+                });
+            }
+            else {
+                $("#login-menu").append("<a class='loginBtn' href='#'>Login</a>");
+            }
+        }
+        setupMenu();
+        $("body").trigger("jk.loginStateChange", user);
+
+        $("body").on("click", ".loginBtn", function() {
+            function showDialog() {
+                $("#login-dialog").modal();
+            }
+            if($("#login-dialog").length == 0) {
+                $.get("/fragments/dialog.login.html").then(function(html){
+                    $(html).appendTo("body");
+                    showDialog();
+                });
+            }
+            else {
+                showDialog();
+            }
+        });
+
+        $("body").on("click", "#start-login", function() {
+            var data = {
+                userId: $("#userId").val(),
+                pwd: $("#password").val()
+            };
+
+                $.ajax({
+                    url: options.loginUrl,
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    cache: false,
+                }).done(function(data) {
+                    user = data;
+                    window.localStorage.jkUser = JSON.stringify(data);
+                    $("#login-dialog").modal('hide').modal('dispose');
+                    setupMenu();
+                    $("body").trigger("jk.loginStateChange", user);
+                }).fail(function() {
+                    alert("unknown userid or password.");
+                });
+        });
+
+        $("body").on("click", ".logout-btn", function() {
+            user = null;
+            window.localStorage.removeItem("jkUser");
+            setupMenu();
+            $("body").trigger("jk.loginStateChange", user);
+        });
+    }
+
     window.Jekyller = function(options, secOptions) {
         var prior;
         options = $.extend({}, defaultOptions, options, secOptions);
@@ -58,6 +124,18 @@
 
             event.preventDefault();
             return false;
-        });    
+        });   
+        
+        $("body").on("jk.loginStateChange", function(event, user) {
+            if(user) {
+                $(".edit-controls").show();
+            }
+            else {
+                $(".edit-controls").hide();
+            }
+        });
+
+
+        setupUserState(options);
     }
 })(jQuery);
