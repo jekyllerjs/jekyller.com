@@ -35,6 +35,12 @@ theme: minima
 plugins:
   - jekyll-feed
 
+sass:
+  style: compressed
+  load_paths:
+      - css
+      - node_modules
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
