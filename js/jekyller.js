@@ -64,8 +64,16 @@
                     $("#login-dialog").modal('hide').modal('dispose');
                     setupMenu();
                     $("body").trigger("jk.loginStateChange", user);
-                }).fail(function() {
-                    alert("unknown userid or password.");
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    if(jqXHR.status == 403) {
+                        alert("This account has been disabled.");
+                    }
+                    else if(jqXHR.status == 404) {
+                        alert("unknown userid or password.");
+                    }
+                    else {
+                        alert("A server error occured while logging in.");
+                    }
                 });
         });
 
