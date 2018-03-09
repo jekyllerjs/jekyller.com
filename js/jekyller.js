@@ -74,7 +74,7 @@
                     else {
                         alert("A server error occured while logging in.");
                     }
-                });
+                }); 
         });
 
         $("body").on("click", ".logout-btn", function() {
