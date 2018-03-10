@@ -41,6 +41,10 @@ sass:
       - css
       - node_modules
 
+collections:
+  docs:
+    output: true
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
