@@ -58,8 +58,8 @@
             "description": "Marinated steak or chicken, grilled with onions and peppers."
           },
           {
-            "name": "Another Test Fajita",
-            "price": "8.50",
+            "name": "Test Fajita",
+            "price": "9.50",
             "description": "Nothing in this but test stuff to see how the edit goes."
           }
         ]
