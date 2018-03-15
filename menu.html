@@ -138,4 +138,37 @@ permalink: /menu/
 
         return datasets;
     }
+
+function question_5(fieldName, list) {
+    if(list instanceof Array) {
+        for(var i = 0; i < list.length; ++i) {
+            if(typeof list[i] == 'object') {
+                if(!list[i].hasOwnProperty(fieldName)) {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+var list = [
+    { city: "Joliette", province: "QC" },
+    { city: "Sudbury" },
+    { city: "Campbell River", province: "BC"}
+];
+var hasit = question_5('province', list);
+console.log("Has it is " + hasit);
+
+list[1].province = "QC";
+hasit = question_5('province', list);
+console.log("Has it is " + hasit);
+
+list.push(5);
+hasit = question_5('province', list);
+console.log("Has it is " + hasit);
+
 </script>
