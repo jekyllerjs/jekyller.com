@@ -1,0 +1,14 @@
+[
+    { "id":"fajitas", "name": "Fajitas" },
+    { "id":"specialty", "name": "Specialties" },
+    { "id":"vegetarian", "name": "Vegetarian Combos" },
+    { "id":"seafood", "name": "Seafood" },
+    { "id":"", "name": "Side Orders" },
+    { "id":"", "name": "A La Carta Orders" },
+    { "id":"", "name": "Appetizers" },
+    { "id":"", "name": "Nachos y Mas" },
+    { "id":"", "name": "Combinations" },
+    { "id":"", "name": "Child Plates" },
+    { "id":"", "name": "Lunch Only" },
+    { "id":"", "name": "Off the Grill (for Lunch)" }
+]

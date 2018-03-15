@@ -27,6 +27,7 @@ realBaseUrl: "/"
 # https://github.com/kusog/jekyller-services
 createPostUrl: https://90pwj9lg4b.execute-api.us-east-1.amazonaws.com/dev/createPost
 updateContentUrl: https://90pwj9lg4b.execute-api.us-east-1.amazonaws.com/dev/updateContent
+updateDataSetsUrl: https://90pwj9lg4b.execute-api.us-east-1.amazonaws.com/dev/updateDataSets
 loginUrl: https://32svenpni2.execute-api.us-east-1.amazonaws.com/dev/login
   
 # Build settings

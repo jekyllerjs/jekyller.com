@@ -1,0 +1,140 @@
+---
+layout: base.layout
+title: Menu
+permalink: /menu/
+---
+<style>
+.kg-sub, .kg-desc {
+    display: block;
+    clear: both;
+}
+.kg-menuitem {
+    float:left;
+    display: block;
+    width: calc(50% - 15px);
+    padding: 15px;
+}
+.kg-menuitem:nth-child(odd) {
+    padding-left:0;
+    clear: both;
+}
+.kg-menuitem:nth-child(even) {
+    padding-right: 0;
+}
+.kg-name {
+    float:left;
+}
+.kg-price {
+    float: right;
+}
+.kg-topmenu li {
+    list-style: none;
+}
+.kg-topmenu h3 {
+    margin-bottom: 0;
+}
+.kg-topmenu, .kg-topmenu  ul {
+    padding: 0;
+    margin: 0;
+}
+.kg-sub {
+    padding-top: 50px;
+}
+.kg-sub > div {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 100;
+}
+.kg-desc {
+    font-size: smaller;
+    width: 100%;
+}
+
+@media (max-width: 650px) {
+    .kg-menuitem {
+        float:none;
+        width: 100%;
+        padding: 15px 0;
+    }
+}
+</style>
+<ul class="kg-topmenu kg-dataset" data-data-set="menu">
+    {% for group in site.data.menu %}
+    <li >
+        <div class="kg-menu">
+            <div class="kg-edit-field" data-field="name">{{group.name}}</div>
+            <div class="kg-edit-field" data-field="description">{{group.description}}</div>
+            <ul data-field="items">
+                {% for sub in group.items %}
+                <li>
+                    <div class="kg-sub">
+                        <div class="kg-edit-field" data-field="name">{{sub.name}}</div>
+                        <div class="kg-edit-field" data-field="description">{{sub.description}}</div>
+                        <ul data-field="items">
+                        {% for menuItem in sub.items %}
+                            <li class="kg-menuitem {{menuItem.categories}}" >
+                                <h3 class="kg-edit-field kg-name" data-field="name">{{menuItem.name}}</h3>
+                                <div class="kg-edit-field kg-price" data-field="price">{{menuItem.price}}</div>
+                                <div class="kg-edit-field kg-desc" data-field="description">{{menuItem.description}}</div>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<div class="kg-dataset" data-data-set="contact">
+    <div class="kg-edit-field" data-field="name">Full Name</div>
+    <div class="kg-edit-field" data-field="email">your@email.com</div>
+</div>
+
+<script>
+    function getDataSets() {
+        function getItem(el, item) {
+            var childEl = $(el),
+                fieldName = childEl.data("field");                    
+            item = item ? item : {};
+
+            if(fieldName) {
+                isList = el.tagName == "UL";
+                item[fieldName] = isList ? getList(el) : childEl.html();
+            }
+            else {
+                $(el).children().each(function() {
+                    getItem(this, item);
+                });                   
+            }
+            return item;
+        }
+
+        function getList(baseEl) {
+            var data = [];
+            $(baseEl).children().each(function() {
+
+                var item = getItem(this);
+                if(item) {
+                    data.push(item);
+                }
+            });
+
+            return data;
+        }
+
+        var datasets = {};
+        $(".kg-dataset").each(function() {
+            var baseEl = $(this),
+                isList = this.tagName=="UL",
+                name = baseEl.data("dataSet"),
+                data = isList?getList(baseEl):getItem(baseEl);
+                    
+            datasets[name] = data;
+        });
+
+        return datasets;
+    }
+</script>

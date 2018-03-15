@@ -8,7 +8,8 @@
         saveSelector: "#save",
         createSelector: "#createNew",
         titleSelector: "#title",
-        contentSelector: "#content"
+        contentSelector: "#content",
+        fieldSelector: ".kg-edit-field"
     };
 
     function setupUserState(options) {
@@ -88,9 +89,10 @@
     window.Jekyller = function(options, secOptions) {
         var prior;
         options = $.extend({}, defaultOptions, options, secOptions);
+        var allEditSelector = options.contentSelector+","+options.fieldSelector;
 
         $(options.editSelector).click(function(event) {
-            var isOn = $(options.contentSelector).attr("contenteditable");
+            var isOn = $(allEditSelector).attr("contenteditable");
             if(isOn) {
                 $(options.contentSelector).html(prior);
             }
@@ -99,7 +101,7 @@
                 $(options.contentSelector).focus();
             }
             $(options.saveSelector).toggle();
-            $(options.contentSelector).attr("contenteditable",isOn?null:true);
+            $(allEditSelector).attr("contenteditable",isOn?null:true);
             event.preventDefault();
             return false;
         });
@@ -113,18 +115,33 @@
                     name: $(options.contentSelector).data("name"),
                     date: $(options.contentSelector).data("date")
                 };
-
-            $.ajax({
-                url: options.asPost ? options.createPostUrl : options.updateContentUrl,
-                type: "POST",
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-                cache: false,
-                success: function(data) {
-                    alert("done");
-                }
-            }); 
+            if(window.getDataSets) {
+                var datasets = window.getDataSets();
+                $.ajax({
+                    url: options.updateDataSetsUrl,
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(datasets),
+                    cache: false,
+                    success: function(data) {
+                        alert("done");
+                    }
+                });                 
+            }
+            else {
+                $.ajax({
+                    url: options.asPost ? options.createPostUrl : options.updateContentUrl,
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    cache: false,
+                    success: function(data) {
+                        alert("done");
+                    }
+                }); 
+            }
 
             if($(this).is(options.saveSelector)) {
                 $(options.saveSelector).toggle();

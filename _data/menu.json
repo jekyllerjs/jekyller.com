@@ -1,0 +1,302 @@
+[
+    {
+        "name": "Full Menu",
+        "items": [
+            {
+                "name": "Fajitas",
+                "items": [
+                    {
+                        "name": "Fajita Taco Salad",
+                        "description": "Taco shell filled with marinated steak or chicken. Topped with lettuce, cheese, pico de gallo, guacamole and source cream",
+                        "price": "10.00",
+                        "categories": "fajitas"
+                    },
+                    {
+                        "name": "Fajita Quesadilla",
+                        "description": "Marinated steak or chicken quesadilla filled with grilled vegetables",
+                        "price": "12.00",
+                        "categories": "fajitas"        
+                    },
+                    {
+                        "name": "Fajitas de Camaron",
+                        "description": "Marinated shrimp grilled with onions and peppers (topped with cheese add $1.00)",
+                        "price": "15.00",
+                        "categories": "fajitas"
+                    },
+                    {
+                        "name": "Vegetarian Fajitas",
+                        "description": "Marinated mixed vegetables, grilled to perfection",
+                        "price": "12.00",
+                        "categories": "fajitas"
+                    },
+                    {
+                        "name": "Fajita Nachos",
+                        "description": "Marinated steak or chicken nachos topped with lettuce tomatoes, guacamole and source cream.",
+                        "price": "11.00",
+                        "categories": "fajitas"
+                    },
+                    {
+                        "name": "Fajitas California",
+                        "description": "Marinated steak or chicken, grilled with onions, peppers mushrooms, poblano peppers and tomatoes",
+                        "price": "14.00",
+                        "categories": "fajitas"
+                    },
+                    {
+                        "name": "Fajitas Chihuahua",
+                        "description": "Marinated steak or chicken, grilled with onions and peppers. Topped with cheese sauce.",
+                        "price": "14.00",
+                        "categories": "fajitas"
+                    },
+                    {
+                        "name": "Parrilladas Fajitas for Two",
+                        "description": "Combination of marinated steak and chicken, grilled with onion and peppers (Shrimp add $4.00)",
+                        "price": "23.00",
+                        "categories": "fajitas"
+                    },
+                    {
+                        "name": "Texas Fajitas",
+                        "description": "Marinated steak, chicken and shrimp, grilled with onions and peppers.",
+                        "price": "15.00",
+                        "categories": "fajitas"
+                    },
+                    {
+                        "name": "Fajitas de la Casa",
+                        "description": "Marinated steak or chicken, grilled with onions and peppers.",
+                        "price": "13.00",
+                        "categories": "fajitas"
+                    }
+                ]
+            },
+            {
+                "name": "Specialties",
+                "items": [
+                    {
+                        "name": "Santa Fe Chicken",
+                        "description": "Grilled chicken breast topped with cheese and pico de gallo.  Served with rice and beans.",
+                        "price": "9.25",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Burrito Marihuano",
+                        "description": "Burrito filled with steak, topped with tomatillo sauce, cheese, lettuce, avacado and pico de gallo.",
+                        "price": "11.50",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "El Patron",
+                        "description": "Super burrito with beef or chicken filled with beans and cheese; topped with lettuce, tomatoes and source cream",
+                        "price": "8.50",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Enchiladas Verdes",
+                        "description": "3 chicken enchiladas topped with tomatillo sauce, potatoes, onions, source cream and queso fresco. Served with rice",
+                        "price": "8.95",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Poblano Dinner",
+                        "description": "Poblano pepper stuffed with beef or chicken.  Served with rice, beans and side salad.",
+                        "price": "8.95",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Flautas Mexicanas",
+                        "description": "4 deep fried corn tortillas filled with beef or chicken, topped with lettuce, tomatoes and source cream.",
+                        "price": "8.95",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Chimichanga",
+                        "description": "Deep fried flour tortilla stuffed with chicken or ground beef and topped with cheese sauce.  Served with rice.",
+                        "price": "8.95",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Special de la casa &quot;Burritos Deluxe&quot;",
+                        "description": "Your choice of two beef or chicken burritos filled with beans, topped with jalapeno cheese sauce, lettuce,",
+                        "price": "8.95",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Burrito Mexicano",
+                        "description": "Burrito filed with beef tips topped with red, white and green sauce, Served with rice, beans and salad",
+                        "price": "9.25",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Super Combination",
+                        "description": "2 enchiladas (1 beef and 1 cheese), chile relleno, chalupa, taco, rice and beans",
+                        "price": "9.95",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Tacos de Carne Asada",
+                        "description": "3 corn tortillas steak tacos with cilantro and onions.  Served with side of rice, beans and salad",
+                        "price": "12.00",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Carnitas",
+                        "description": "Roasted pork served with rice beans and guacamole salad.",
+                        "price": "9.50",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Tampiquena",
+                        "description": "Marinated skirt steak topped with mushrooms, onions and peppers. Includes cheese enchilada topped with tomatillo",
+                        "price": "11.50",
+                        "categories": "specialty"
+                    },
+                    {
+                        "name": "Mar y Tierra",
+                        "description": "Marinated skirt steak or grilled chicken breast topped with tequila, cilantro, Jime shrimp.  Served with rice and",
+                        "price": "12.95",
+                        "categories": "specialty"
+                    }                
+                ]
+            },
+            {
+                "name": "Vegetarian",
+                "items": [
+                    {
+                        "name": "Vegetarian Combo A",
+                        "description": "One bean burrito, one cheese enchilada and one bean and cheese tostada",
+                        "price": "7.50",
+                        "categories": "vegetarian"
+                    },
+                    {
+                        "name":"Vegetarian Combo B",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"Vegetarian Combo C",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"Vegetarian Combo D",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"Vegetarian Combo E",
+                        "description": "xxx",
+                        "price": "8.95"
+                    }
+                ]
+            },
+            {
+                "name": "Seafood",
+                "items": [
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    }
+                ]
+            },
+            {
+                "name": "Side Orders",
+                "items": [
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    }
+                ]
+            },
+            {
+                "name": "Appetizers",
+                "items": [
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    }
+                ]
+            },
+            {
+                "name": "Nachos y Mas",
+                "items": [
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    }
+                ]
+            },
+            {
+                "name": "Child Plates",
+                "items": [
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Lunch Menu",
+        "items": [
+            {
+                "name": "Specials",
+                "items": [
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    }
+                ]
+            },
+            {
+                "name": "Off the Grill",
+                "items": [
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    },
+                    {
+                        "name":"xxx",
+                        "description": "xxx",
+                        "price": "8.95"
+                    }
+                ]
+            }
+        ]
+    }
+]
