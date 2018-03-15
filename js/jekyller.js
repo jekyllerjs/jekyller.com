@@ -9,7 +9,8 @@
         createSelector: "#createNew",
         titleSelector: "#title",
         contentSelector: "#content",
-        fieldSelector: ".kg-edit-field"
+        fieldSelector: ".kg-edit-field",
+        editorControlsSelector: ".edit-dataset-controls"
     };
 
     function setupUserState(options) {
@@ -101,8 +102,15 @@
                 $(options.contentSelector).focus();
             }
             $(options.saveSelector).toggle();
+            $(options.editorControlsSelector).toggle();
             $(allEditSelector).attr("contenteditable",isOn?null:true);
             event.preventDefault();
+            return false;
+        });
+
+        $("body").on("click", ".kg-edit-add", function() {
+            var list = $(this).parent().parent().find("> ul");
+            list.children().last().clone().appendTo(list);
             return false;
         });
 

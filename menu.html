@@ -67,8 +67,11 @@ permalink: /menu/
             <ul data-field="items">
                 {% for sub in group.items %}
                 <li>
-                    <div class="kg-sub">
+                    <div class="kg-sub" style="position:relative">
                         <div class="kg-edit-field" data-field="name">{{sub.name}}</div>
+                        <div class="edit-dataset-controls" style="position: absolute; top: 60px; right: 0; display:none">
+                            <a href="#" class="kg-edit-add" style="margin-right:20px;"><i class="far fa-plus-square"></i></a>
+                        </div>
                         <div class="kg-edit-field" data-field="description">{{sub.description}}</div>
                         <ul data-field="items">
                         {% for menuItem in sub.items %}
@@ -139,36 +142,5 @@ permalink: /menu/
         return datasets;
     }
 
-function question_5(fieldName, list) {
-    if(list instanceof Array) {
-        for(var i = 0; i < list.length; ++i) {
-            if(typeof list[i] == 'object') {
-                if(!list[i].hasOwnProperty(fieldName)) {
-                    return false;
-                }
-            }
-            else {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-
-var list = [
-    { city: "Joliette", province: "QC" },
-    { city: "Sudbury" },
-    { city: "Campbell River", province: "BC"}
-];
-var hasit = question_5('province', list);
-console.log("Has it is " + hasit);
-
-list[1].province = "QC";
-hasit = question_5('province', list);
-console.log("Has it is " + hasit);
-
-list.push(5);
-hasit = question_5('province', list);
-console.log("Has it is " + hasit);
 
 </script>
