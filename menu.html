@@ -63,6 +63,9 @@ permalink: /menu/
     <li >
         <div class="kg-menu">
             <div class="kg-edit-field" data-field="name">{{group.name}}</div>
+            <div class="edit-dataset-controls" style="position: absolute; top: 60px; right: 0; display:none">
+                <a href="#" class="kg-edit-add" style="margin-right:20px;"><i class="far fa-plus-square"></i></a>
+            </div>
             <div class="kg-edit-field" data-field="description">{{group.description}}</div>
             <ul data-field="items">
                 {% for sub in group.items %}
