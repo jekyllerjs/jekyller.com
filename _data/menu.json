@@ -59,8 +59,13 @@
           },
           {
             "name": "Test Fajita",
-            "price": "9.50",
-            "description": "Nothing in this but test stuff to see how the edit goes."
+            "price": "10.50",
+            "description": "Nothing in this but test stuff to see how the edit goes. more here"
+          },
+          {
+            "name": "Another Test Fajita",
+            "price": "11.50",
+            "description": "Nothing in this but test stuff to see how the edit goes. more here"
           }
         ]
       },
