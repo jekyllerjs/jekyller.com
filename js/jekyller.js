@@ -156,6 +156,7 @@
                 $(options.saveSelector).toggle();
             }
             $(options.editorControlsSelector).toggle();
+            $(allEditSelector).attr("contenteditable",isOn?null:true);
 
             event.preventDefault();
             return false;
