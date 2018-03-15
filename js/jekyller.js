@@ -123,6 +123,7 @@
                     name: $(options.contentSelector).data("name"),
                     date: $(options.contentSelector).data("date")
                 };
+
             if(window.getDataSets) {
                 var datasets = window.getDataSets();
                 $.ajax({
@@ -154,6 +155,7 @@
             if($(this).is(options.saveSelector)) {
                 $(options.saveSelector).toggle();
             }
+            $(options.editorControlsSelector).toggle();
 
             event.preventDefault();
             return false;
