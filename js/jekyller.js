@@ -153,10 +153,10 @@
             }
 
             if($(this).is(options.saveSelector)) {
-                $(options.saveSelector).toggle();
+                $(options.saveSelector).hide();
             }
-            $(options.editorControlsSelector).toggle();
-            $(allEditSelector).attr("contenteditable",isOn?null:true);
+            $(options.editorControlsSelector).hide();
+            $(allEditSelector).attr("contenteditable",null);
 
             event.preventDefault();
             return false;
