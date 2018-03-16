@@ -1,7 +1,7 @@
 [
   {
     "name": "Full Menu",
-    "description": "",
+    "description": "Always available during normal business hours.",
     "items": [
       {
         "name": "Fajitas",
@@ -58,15 +58,20 @@
             "description": "Marinated steak or chicken, grilled with onions and peppers."
           },
           {
+            "name": "Test Fajita",
+            "price": "10.50",
+            "description": "Nothing in this but test stuff to see how the edit goes. more here"
+          },
+          {
             "name": "Another Test Fajita",
-            "price": "8.50",
-            "description": "Nothing in this but test stuff to see how the edit goes."
+            "price": "11.50",
+            "description": "Nothing in this but test stuff to see how the edit goes. more here"
           }
         ]
       },
       {
         "name": "Specialties",
-        "description": "",
+        "description": "Our hand picked in house specials made to please",
         "items": [
           {
             "name": "Santa Fe Chicken",
