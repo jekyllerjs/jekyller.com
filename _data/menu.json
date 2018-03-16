@@ -260,7 +260,7 @@
   },
   {
     "name": "Lunch Menu",
-    "description": "",
+    "description": "Only available from 11am to 2pm M-F.",
     "items": [
       {
         "name": "Specials",
