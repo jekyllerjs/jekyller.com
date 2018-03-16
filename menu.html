@@ -27,6 +27,9 @@ permalink: /menu/
 .kg-price {
     float: right;
 }
+.kg-topmenu {
+    position: relative;
+}
 .kg-topmenu li {
     list-style: none;
 }
@@ -49,6 +52,13 @@ permalink: /menu/
     font-size: smaller;
     width: 100%;
 }
+.kg-topmenu .edit-dataset-controls {
+    position: absolute; 
+    top: 60px;
+    right: 0;
+    display: none;
+    font-size: 14px;
+}
 
 @media (max-width: 650px) {
     .kg-menuitem {
@@ -63,7 +73,7 @@ permalink: /menu/
     <li >
         <div class="kg-menu">
             <div class="kg-edit-field" data-field="name">{{group.name}}</div>
-            <div class="edit-dataset-controls" style="position: absolute; top: 60px; right: 0; display:none">
+            <div class="edit-dataset-controls" >
                 <a href="#" class="kg-edit-add" style="margin-right:20px;"><i class="far fa-plus-square"></i></a>
             </div>
             <div class="kg-edit-field" data-field="description">{{group.description}}</div>
@@ -72,7 +82,7 @@ permalink: /menu/
                 <li>
                     <div class="kg-sub" style="position:relative">
                         <div class="kg-edit-field" data-field="name">{{sub.name}}</div>
-                        <div class="edit-dataset-controls" style="position: absolute; top: 60px; right: 0; display:none">
+                        <div class="edit-dataset-controls" >
                             <a href="#" class="kg-edit-add" style="margin-right:20px;"><i class="far fa-plus-square"></i></a>
                         </div>
                         <div class="kg-edit-field" data-field="description">{{sub.description}}</div>
