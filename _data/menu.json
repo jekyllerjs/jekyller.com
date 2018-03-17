@@ -18,7 +18,7 @@
             "description": "Marinated steak or chicken nachos topped with lettuce tomatoes, guacamole and source cream."
           },
           {
-            "name": "Fajitas California",
+            "name": "Fajitas Calfffifornia",
             "price": "14.00",
             "description": "Marinated steak or chicken, grilled with onions, peppers mushrooms, poblano peppers and tomatoes"
           },
@@ -49,8 +49,8 @@
           },
           {
             "name": "Test Fajita",
-            "price": "10.50",
-            "description": "Nothing in this but test stuff to see how the edit goes. more here"
+            "price": "13.50",
+            "description": "Nothing in this but test stuff to see how the edit goes. more here😏"
           },
           {
             "name": "Another Test Fajita",
