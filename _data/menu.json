@@ -5,17 +5,12 @@
     "items": [
       {
         "name": "Fajitas",
-        "description": "Made fresh daily.",
+        "description": "Made fresh daily just for you.",
         "items": [
           {
             "name": "Fajita Quesadilla",
             "price": "12.00",
             "description": "Marinated steak or chicken quesadilla filled with grilled vegetables"
-          },
-          {
-            "name": "Vegetarian Fajitas",
-            "price": "12.00",
-            "description": "Marinated mixed vegetables, grilled to perfection"
           },
           {
             "name": "Fajita Nachos",
@@ -43,6 +38,11 @@
             "description": "Marinated steak, chicken and shrimp, grilled with onions and peppers."
           },
           {
+            "name": "Vegetarian Fajitas",
+            "price": "13.00",
+            "description": "Marinated mixed vegetables, grilled to perfection"
+          },
+          {
             "name": "Fajitas de la Casa",
             "price": "13.00",
             "description": "Marinated steak or chicken, grilled with onions and peppers."
@@ -66,6 +66,11 @@
             "name": "Fajitas de Camaron",
             "price": "13.00",
             "description": "Marinated shrimp grilled with onions and peppers (topped with cheese add $1.00)"
+          },
+          {
+            "name": "Another Test Fajita",
+            "price": "9.00",
+            "description": "Some test text for my test fajita."
           }
         ]
       },
