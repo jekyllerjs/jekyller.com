@@ -92,7 +92,7 @@ ul.kg-childList {
                         <div class="kg-edit-field" data-field="description">{{sub.description}}</div>
                         <ul data-field="items" class="kg-childList" ondrop="drop(event)" ondragover="allowDrop(event)">
                         {% for menuItem in sub.items %}
-                            <li class="kg-menuitem {{menuItem.categories}}" draggable="true" ondragstart="drag(event)">
+                            <li class="kg-menuitem {{menuItem.categories}}" ondragstart="drag(event)">
                                 <h3 class="kg-edit-field kg-name" data-field="name">{{menuItem.name}}</h3>
                                 <div class="kg-edit-field kg-price" data-field="price">{{menuItem.price}}</div>
                                 <div class="kg-edit-field kg-desc" data-field="description">{{menuItem.description}}</div>
