@@ -159,50 +159,51 @@ ul.kg-childList {
 
         return datasets;
     }
-    var dragChild = null,
-        dragOverChild = null;
-    window.setTimeout(function(){
-        blankChild = $("<li class='kg-menuItem'></li>");
-    },200);
 
-        window.allowDrop = function(ev) {
-            var target = ev.target;
-            if(target.tagName != "UL" && target.tagName != "LI") {
-                target = target.parentElement;
-            }
-            if(target.tagName == "LI") {
-                if($(target).index() > $(dragChild).index())
-                    $(dragChild).insertAfter(target);
-                else
-                    $(dragChild).insertBefore(target);
-            }
-            else if(target.tagName == "UL") {
-                $(dragChild).appendTo(target);
-            }
-            ev.preventDefault();
-        };
-
-        window.drag = function(ev) {
-            dragChild = ev.target;
-            ev.dataTransfer.setData("text", ev.target.id);
-            //dragChild.style.position = "absolute";
+    var dragChild = null;
+    window.allowDrop = function(ev) {
+        var target = ev.target;
+        if(target.tagName != "UL" && target.tagName != "LI") {
+            target = target.parentElement;
         }
-
-        window.drop = function(ev) {
-            ev.preventDefault();
-            var target = ev.target;
-            if(target.tagName != "UL" && target.tagName != "LI") {
-                target = target.parentElement;
-            }
-            if(target.tagName == "LI") {
+        if(target.tagName == "LI") {
+            if($(target).index() > $(dragChild).index())
                 $(dragChild).insertAfter(target);
-            }
-            else if(target.tagName == "UL") {
-                $(dragChild).appendTo(target);
-            }
-
-            blankChild.remove();
-            //var data = ev.dataTransfer.getData("text");
-            //ev.target.appendChild(document.getElementById(data));
+            else
+                $(dragChild).insertBefore(target);
         }
+        else if(target.tagName == "UL") {
+            $(dragChild).appendTo(target);
+        }
+        ev.preventDefault();
+    };
+
+    window.drag = function(ev) {
+        dragChild = ev.target;
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    window.drop = function(ev) {
+        ev.preventDefault();
+        var target = ev.target;
+        if(target.tagName != "UL" && target.tagName != "LI") {
+            target = target.parentElement;
+        }
+        if(target.tagName == "LI") {
+            $(dragChild).insertAfter(target);
+        }
+        else if(target.tagName == "UL") {
+            $(dragChild).appendTo(target);
+        }
+    }
+
+    window.setTimeout(function() {
+        $(".kg-sub > ul > li").each(function() {
+            var $item = $(this);
+            $item.children().hover(
+                function(){$item.attr("draggable", null);},
+                function(){$item.attr("draggable", true);}
+            );
+        });
+    },200);
 </script>
