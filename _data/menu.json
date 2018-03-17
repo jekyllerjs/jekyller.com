@@ -9,18 +9,13 @@
         "items": [
           {
             "name": "Fajita Taco Salad",
-            "price": "12.00",
+            "price": "14.00",
             "description": "Taco shell filled with marinated steak or chicken. Topped with lettuce, cheese, pico de gallo, guacamole and source cream"
           },
           {
             "name": "Fajita Quesadilla",
             "price": "12.00",
             "description": "Marinated steak or chicken quesadilla filled with grilled vegetables"
-          },
-          {
-            "name": "Fajitas de Camaron",
-            "price": "15.00",
-            "description": "Marinated shrimp grilled with onions and peppers (topped with cheese add $1.00)"
           },
           {
             "name": "Vegetarian Fajitas",
@@ -66,6 +61,11 @@
             "name": "Another Test Fajita",
             "price": "11.50",
             "description": "Nothing in this but test stuff to see how the edit goes. more here"
+          },
+          {
+            "name": "Fajitas de Camaronx",
+            "price": "15.00",
+            "description": "Marinated shrimp grilled with onions and peppers (topped with cheese add $1.00)"
           }
         ]
       },
@@ -260,7 +260,7 @@
   },
   {
     "name": "Lunch Menu",
-    "description": "Only available from 11am to 2pm M-F.",
+    "description": "",
     "items": [
       {
         "name": "Specials",
