@@ -18,11 +18,6 @@
             "description": "Marinated steak or chicken quesadilla filled with grilled vegetables"
           },
           {
-            "name": "Fajitas de Camaron",
-            "price": "15.00",
-            "description": "Marinated shrimp grilled with onions and peppers (topped with cheese add $1.00)"
-          },
-          {
             "name": "Vegetarian Fajitas",
             "price": "12.00",
             "description": "Marinated mixed vegetables, grilled to perfection"
@@ -66,6 +61,11 @@
             "name": "Another Test Fajita",
             "price": "11.50",
             "description": "Nothing in this but test stuff to see how the edit goes. more here"
+          },
+          {
+            "name": "Fajitas de Camaronx",
+            "price": "15.00",
+            "description": "Marinated shrimp grilled with onions and peppers (topped with cheese add $1.00)"
           }
         ]
       },
