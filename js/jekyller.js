@@ -103,6 +103,7 @@
             }
             $(options.saveSelector).toggle();
             $(options.editorControlsSelector).toggle();
+            $(".kg-menuitem").attr("draggable", isOn?null:true);
             $(allEditSelector).attr("contenteditable",isOn?null:true);
             event.preventDefault();
             return false;

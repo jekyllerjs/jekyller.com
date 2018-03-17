@@ -9,7 +9,6 @@ permalink: /menu/
     clear: both;
 }
 .kg-menuitem {
-    float:left;
     display: block;
     width: calc(50% - 15px);
     padding: 15px;
@@ -59,6 +58,11 @@ permalink: /menu/
     display: none;
     font-size: 14px;
 }
+ul.kg-childList {
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
 
 @media (max-width: 650px) {
     .kg-menuitem {
@@ -86,9 +90,9 @@ permalink: /menu/
                             <a href="#" class="kg-edit-add" style="margin-right:20px;"><i class="far fa-plus-square"></i></a>
                         </div>
                         <div class="kg-edit-field" data-field="description">{{sub.description}}</div>
-                        <ul data-field="items">
+                        <ul data-field="items" class="kg-childList" ondrop="drop(event)" ondragover="allowDrop(event)">
                         {% for menuItem in sub.items %}
-                            <li class="kg-menuitem {{menuItem.categories}}" >
+                            <li class="kg-menuitem {{menuItem.categories}}" ondragstart="drag(event)">
                                 <h3 class="kg-edit-field kg-name" data-field="name">{{menuItem.name}}</h3>
                                 <div class="kg-edit-field kg-price" data-field="price">{{menuItem.price}}</div>
                                 <div class="kg-edit-field kg-desc" data-field="description">{{menuItem.description}}</div>
@@ -105,7 +109,7 @@ permalink: /menu/
     {% endfor %}
 </ul>
 <br style="clear:both"/>
-
+<ul id="holderTable"></ul>
 <div class="kg-dataset" data-data-set="contact">
     <div class="kg-edit-field" data-field="name">{{site.data.contact.name}}</div>
     <div class="kg-edit-field" data-field="email">{{site.data.contact.email}}</div>
@@ -155,6 +159,50 @@ permalink: /menu/
 
         return datasets;
     }
+    var dragChild = null,
+        dragOverChild = null;
+    window.setTimeout(function(){
+        blankChild = $("<li class='kg-menuItem'></li>");
+    },200);
 
+        window.allowDrop = function(ev) {
+            var target = ev.target;
+            if(target.tagName != "UL" && target.tagName != "LI") {
+                target = target.parentElement;
+            }
+            if(target.tagName == "LI") {
+                if($(target).index() > $(dragChild).index())
+                    $(dragChild).insertAfter(target);
+                else
+                    $(dragChild).insertBefore(target);
+            }
+            else if(target.tagName == "UL") {
+                $(dragChild).appendTo(target);
+            }
+            ev.preventDefault();
+        };
 
+        window.drag = function(ev) {
+            dragChild = ev.target;
+            ev.dataTransfer.setData("text", ev.target.id);
+            //dragChild.style.position = "absolute";
+        }
+
+        window.drop = function(ev) {
+            ev.preventDefault();
+            var target = ev.target;
+            if(target.tagName != "UL" && target.tagName != "LI") {
+                target = target.parentElement;
+            }
+            if(target.tagName == "LI") {
+                $(dragChild).insertAfter(target);
+            }
+            else if(target.tagName == "UL") {
+                $(dragChild).appendTo(target);
+            }
+
+            blankChild.remove();
+            //var data = ev.dataTransfer.getData("text");
+            //ev.target.appendChild(document.getElementById(data));
+        }
 </script>
