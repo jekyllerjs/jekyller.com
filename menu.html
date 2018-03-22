@@ -201,8 +201,18 @@ ul.kg-childList {
         $(".kg-sub > ul > li").each(function() {
             var $item = $(this);
             $item.children().hover(
-                function(){$item.attr("draggable", null);},
-                function(){$item.attr("draggable", true);}
+                function(){
+                    var isOn = $(jek.options.allEditSelector).attr("contenteditable");
+                    if(isOn) {
+                        $item.attr("draggable", null);
+                    }
+                },
+                function(){
+                    var isOn = $(jek.options.allEditSelector).attr("contenteditable");
+                    if(isOn) {
+                        $item.attr("draggable", true);
+                    }
+                }
             );
         });
     },200);

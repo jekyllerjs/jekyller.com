@@ -89,7 +89,7 @@
 
     window.Jekyller = function(options, secOptions) {
         var prior;
-        options = $.extend({}, defaultOptions, options, secOptions);
+        this.options = options = $.extend({}, defaultOptions, options, secOptions);
         var allEditSelector = options.contentSelector+","+options.fieldSelector;
 
         $(options.editSelector).click(function(event) {
