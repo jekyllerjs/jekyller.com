@@ -18,7 +18,7 @@
             "description": "Marinated steak or chicken nachos topped with lettuce tomatoes, guacamole and source cream."
           },
           {
-            "name": "Fajitas California",
+            "name": "Fajitas Calfffifornia",
             "price": "14.00",
             "description": "Marinated steak or chicken, grilled with onions, peppers mushrooms, poblano peppers and tomatoes"
           },
@@ -43,14 +43,14 @@
             "description": "Marinated mixed vegetables, grilled to perfection"
           },
           {
+            "name": "Test Fajitas",
+            "price": "14.50",
+            "description": "Editing is good in all now.&nbsp; Nothing in this but test stuff to see how the edit goes. more here😏"
+          },
+          {
             "name": "Fajitas de la Casa",
             "price": "13.00",
             "description": "Marinated steak or chicken, grilled with onions and peppers."
-          },
-          {
-            "name": "Test Fajita",
-            "price": "10.50",
-            "description": "Nothing in this but test stuff to see how the edit goes. more here"
           },
           {
             "name": "Another Test Fajita",
@@ -152,7 +152,7 @@
       },
       {
         "name": "Vegetarian",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "Vegetarian Combo A",
@@ -183,7 +183,7 @@
       },
       {
         "name": "Seafood",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "xxx",
@@ -199,7 +199,7 @@
       },
       {
         "name": "Side Orders",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "xxx",
@@ -215,7 +215,7 @@
       },
       {
         "name": "Appetizers",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "xxx",
@@ -231,7 +231,7 @@
       },
       {
         "name": "Nachos y Mas",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "xxx",
@@ -247,7 +247,7 @@
       },
       {
         "name": "Child Plates",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "xxx",
@@ -265,11 +265,11 @@
   },
   {
     "name": "Lunch Menu",
-    "description": "",
+    "description": "<br>",
     "items": [
       {
         "name": "Specials",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "xxx",
@@ -285,7 +285,7 @@
       },
       {
         "name": "Off the Grill",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "xxx",
@@ -301,7 +301,7 @@
       },
       {
         "name": "Off the Grill - Test",
-        "description": "",
+        "description": "<br>",
         "items": [
           {
             "name": "Part1",
