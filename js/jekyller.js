@@ -244,7 +244,7 @@
             else if(target.tagName == "UL" && supportDropType == draggedType) {
                 $(dragChild).appendTo(target);
             }
-            
+
             ev.preventDefault();
         }
     
@@ -275,7 +275,7 @@
             item = item ? item : {};
 
             if(fieldName) {
-                isList = el.tagName == "UL";
+                var isList = el.tagName == "UL";
                 item[fieldName] = isList ? getList(el) : childEl.html();
             }
             else {
