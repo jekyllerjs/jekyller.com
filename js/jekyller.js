@@ -13,10 +13,11 @@
         editorControlsSelector: ".edit-dataset-controls"
     };
 
+    var allEditSelector = null;
+
     function setupUserState(options) {
         var user = window.localStorage.jkUser;
         user = user ? JSON.parse(user) : null;
-
 
         function setupMenu() {
             $("#login-menu").html("");
@@ -30,6 +31,7 @@
             }
         }
         setupMenu();
+
         $("body").trigger("jk.loginStateChange", user);
 
         $("body").on("click", ".loginBtn", function() {
@@ -87,13 +89,19 @@
         });
     }
 
+    function isInEditMode() {
+        var isOn = $(allEditSelector).attr("contenteditable");
+        return isOn;
+    }
+
     window.Jekyller = function(options, secOptions) {
         var prior;
         this.options = options = $.extend({}, defaultOptions, options, secOptions);
-        var allEditSelector = options.contentSelector+","+options.fieldSelector;
+
+        allEditSelector = options.contentSelector+","+options.fieldSelector;
 
         $(options.editSelector).click(function(event) {
-            var isOn = $(allEditSelector).attr("contenteditable");
+            var isOn = isInEditMode();
             if(isOn) {
                 $(options.contentSelector).html(prior);
             }
@@ -103,7 +111,7 @@
             }
             $(options.saveSelector).toggle();
             $(options.editorControlsSelector).toggle();
-            $(".kg-menuitem").attr("draggable", isOn?null:true);
+            $(".kg-sub > ul > li").attr("draggable", isOn?null:true);
             $(allEditSelector).attr("contenteditable",isOn?null:true);
             event.preventDefault();
             return false;
@@ -111,7 +119,9 @@
 
         $("body").on("click", ".kg-edit-add", function() {
             var list = $(this).parent().parent().find("> ul");
-            list.children().last().clone().appendTo(list);
+            setupDraggableOnHover(
+                list.children().last().clone().appendTo(list).children()
+            );
             return false;
         });
 
@@ -125,8 +135,8 @@
                     date: $(options.contentSelector).data("date")
                 };
 
-            if(window.getDataSets) {
-                var datasets = window.getDataSets();
+            if(options.useDataSets) {
+                var datasets = getDataSets();
                 $.ajax({
                     url: options.updateDataSetsUrl,
                     type: "POST",
@@ -172,7 +182,134 @@
             }
         });
 
-
+        setupDataSetEditing(options);
         setupUserState(options);
     }
+
+    function setupDataSetEditing(options) {
+        var dragChild = null,
+        draggedType = null;
+
+        window.allowDrop = function(ev) {
+            var target = ev.target,
+                draggedType = $(dragChild).data("type"),
+                supportDropType = "";
+
+            if(target.tagName != "UL" && target.tagName != "LI") {
+                target = target.parentElement;
+            }
+            supportDropType = $(target).data("dropType");
+            if(target.tagName == "LI") {
+                supportDropType = $(target.parentElement).data("dropType");
+                if(supportDropType == draggedType) {
+                    if($(target).index() > $(dragChild).index())
+                        $(dragChild).insertAfter(target);
+                    else
+                        $(dragChild).insertBefore(target);
+                }
+            }
+            else if(target.tagName == "UL" && supportDropType == draggedType) {
+                $(dragChild).appendTo(target);
+            }
+
+            if(draggedType == supportDropType) {
+                ev.preventDefault();
+            }
+            else {
+                console.log("drag type:" + draggedType + " drop type:" + supportDropType);
+            }
+        };
+    
+        window.drag = function(ev) {
+            dragChild = ev.target;
+            draggedType = $(dragChild).data("type");
+            console.log("drag start:" + draggedType);
+            ev.dataTransfer.setData("text", draggedType);
+        }
+    
+        window.drop = function(ev) {
+            var target = ev.target,
+                supportDropType = "";
+
+            if(target.tagName != "UL" && target.tagName != "LI") {
+                target = target.parentElement;
+            }
+            supportDropType = $(target).data("dropType");
+            if(target.tagName == "LI") {
+                supportDropType = $(target.parentElement).data("dropType");
+                if(supportDropType == draggedType) {
+                    $(dragChild).insertAfter(target);
+                }
+            }
+            else if(target.tagName == "UL" && supportDropType == draggedType) {
+                $(dragChild).appendTo(target);
+            }
+            
+            ev.preventDefault();
+        }
+    
+        $(".kg-sub > ul > li > div").each(function() {
+            setupDraggableOnHover($(this));
+        });
+    }
+
+    function setupDraggableOnHover($item) {
+        $item.children().hover(
+            function(){
+                if(isInEditMode()) {
+                    $item.parent().attr("draggable", null);
+                }
+            },
+            function(){
+                if(isInEditMode()) {
+                    $item.parent().attr("draggable", true);
+                }
+            }
+        );
+    }
+
+    function getDataSets() {
+        function getItem(el, item) {
+            var childEl = $(el),
+                fieldName = childEl.data("field");                    
+            item = item ? item : {};
+
+            if(fieldName) {
+                isList = el.tagName == "UL";
+                item[fieldName] = isList ? getList(el) : childEl.html();
+            }
+            else {
+                $(el).children().each(function() {
+                    getItem(this, item);
+                });                   
+            }
+            return item;
+        }
+
+        function getList(baseEl) {
+            var data = [];
+            $(baseEl).children().each(function() {
+
+                var item = getItem(this);
+                if(item) {
+                    data.push(item);
+                }
+            });
+
+            return data;
+        }
+
+        var datasets = {};
+        $(".kg-dataset").each(function() {
+            var baseEl = $(this),
+                isList = this.tagName=="UL",
+                name = baseEl.data("dataSet"),
+                data = isList?getList(baseEl):getItem(baseEl);
+                    
+            datasets[name] = data;
+        });
+
+        return datasets;
+    }
+
 })(jQuery);

@@ -1,0 +1,46 @@
+[
+    {
+        "firstName":"Matt",
+        "lastName":"Denman",
+        "email":"matt@stringclub.com",
+        "phone": [
+            {
+                "name":"home",
+                "number":"206-111-1111"
+            }
+        ],
+        "address": [
+            {
+                "name":"home",
+                "street1":"801 Pine St",
+                "street2":"",
+                "city":"Seattle",
+                "state":"WA",
+                "postalCode":"98101",
+                "country":"US"
+            }
+        ]
+    },
+    {
+        "firstName":"Bob",
+        "lastName":"Smith",
+        "email":"bob@gmail.com",
+        "phone": [
+            {
+                "name":"home",
+                "number":"206-222-2222"
+            }
+        ],
+        "address": [
+            {
+                "name":"home",
+                "street1":"123 Elm St",
+                "street2":"",
+                "city":"Boston",
+                "state":"MA",
+                "postalCode":"05433",
+                "country":"US"
+            }
+        ]
+    }
+]
