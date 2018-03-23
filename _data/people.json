@@ -38,5 +38,25 @@
         "zip": ""
       }
     ]
+  },
+  {
+    "firstName": "John",
+    "lastName": "DoeSmith",
+    "phone": [
+      {
+        "name": "home",
+        "number": "770-555-1212"
+      }
+    ],
+    "address": [
+      {
+        "name": "home",
+        "street1": "87 Any st",
+        "street2": "",
+        "city": "Portland",
+        "state": "OR",
+        "zip": "87754"
+      }
+    ]
   }
 ]
