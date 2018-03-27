@@ -1,0 +1,81 @@
+---
+layout: base.layout
+title: Menu
+permalink: /people/
+useDataSets: true
+---
+<style>
+    .cardset {
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .kg-sub {
+        position: relative;
+    }
+    .kg-sub li {
+        padding-top: 10px;
+    }
+
+    .cardset .card {
+        margin: 5px;
+    }
+
+    .kg-edit-field {min-width:100px;}
+    .kg-edit-list .edit-dataset-controls {
+    position: absolute; 
+    top: 40px;
+    right: 0;
+    display: none;
+    font-size: 14px;
+}
+</style>
+<div class="kg-edit-list kg-sub cardset">
+    <div class="edit-dataset-controls" >
+        <a href="#" class="kg-edit-add" style="margin-right:20px;"><i class="far fa-plus-square"></i></a>
+    </div>
+        
+    <ul class="kg-dataset" data-data-set="people" ondrop="drop(event)" ondragover="allowDrop(event)" data-drop-type="person">
+        {% for person in site.data.people %}
+        <li class="card" ondragstart="drag(event)" data-type="person">
+            <div class="card-body">
+                <label>First Name</label> <div class="kg-edit-field" data-field="firstName">{{person.firstName}}</div>
+                <label>Last Name</label> <div class="kg-edit-field" data-field="lastName">{{person.lastName}}</div>
+                <label>Phone</label>
+
+                <div class="kg-sub">
+                    <div class="edit-dataset-controls" >
+                        <a href="#" class="kg-edit-add" style="margin-right:20px;"><i class="far fa-plus-square"></i></a>
+                    </div>                
+                    <ul data-field="phone" ondrop="drop(event)" ondragover="allowDrop(event)" data-drop-type="phone">
+                        {% for phone in person.phone %}
+                        <li ondragstart="drag(event)" data-type="phone"><div style="display: flex; width: 300px;">
+                                <div class="kg-edit-field" data-field="name">{{phone.name}}</div>
+                                <div class="kg-edit-field" data-field="number" style="flex-grow: 2">{{phone.number}}</div>
+                            </div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <label>Address</label>
+                <div class="kg-sub">
+                        <div class="edit-dataset-controls" >
+                                <a href="#" class="kg-edit-add" style="margin-right:20px;"><i class="far fa-plus-square"></i></a>
+                            </div>                
+                            <ul data-field="address" ondrop="drop(event)" ondragover="allowDrop(event)" data-drop-type="address">
+                                {% for address in person.address %}
+                                <li ondragstart="drag(event)" data-type="address"><div style="display: flex;">
+                                        <div class="kg-edit-field" data-field="name">{{address.name}}</div>
+                                        <div class="kg-edit-field" data-field="street1">{{address.street1}}</div>
+                                        <div class="kg-edit-field" data-field="street2">{{address.street2}}</div>
+                                        <div class="kg-edit-field" data-field="city">{{address.city}}</div>
+                                        <div class="kg-edit-field" data-field="state">{{address.state}}</div>
+                                        <div class="kg-edit-field" data-field="zip"{{address.zip}}></div>
+                                    </div></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
