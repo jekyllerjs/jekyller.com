@@ -8,7 +8,8 @@
         saveSelector: "#save",
         createSelector: "#createNew",
         titleSelector: "#title",
-        contentSelector: "#content",
+        contentAreaSelector: ".kg-pageContent",
+        contentSelector: ".kg-editSection, #content",
         fieldSelector: ".kg-edit-field",
         editorControlsSelector: ".edit-dataset-controls"
     };
@@ -126,13 +127,13 @@
         });
 
         $(options.saveSelector + ", " + options.createSelector).click(function(event) {
-            var content = $(options.contentSelector).attr("contenteditable",null).html() || $(options.contentSelector).val(),
-                title = $(options.titleSelector).val() || $(options.contentSelector).data("title"),
+            var content = $(options.contentAreaSelector).attr("contenteditable",null).html() || $(options.contentAreaSelector).val(),
+                title = $(options.titleSelector).val() || $(options.contentAreaSelector).data("title"),
                 data = {
                     title: title,
                     content: content,
-                    name: $(options.contentSelector).data("name"),
-                    date: $(options.contentSelector).data("date")
+                    name: $(options.contentAreaSelector).data("name"),
+                    date: $(options.contentAreaSelector).data("date")
                 };
 
             if(options.useDataSets) {
