@@ -127,6 +127,12 @@
         });
 
         $(options.saveSelector + ", " + options.createSelector).click(function(event) {
+            if($(this).is(options.saveSelector)) {
+                $(options.saveSelector).hide();
+            }
+            $(options.editorControlsSelector).hide();
+            $(allEditSelector).attr("contenteditable",null);
+
             var content = $(options.contentAreaSelector).attr("contenteditable",null).html() || $(options.contentAreaSelector).val(),
                 title = $(options.titleSelector).val() || $(options.contentAreaSelector).data("title"),
                 data = {
@@ -164,11 +170,6 @@
                 }); 
             }
 
-            if($(this).is(options.saveSelector)) {
-                $(options.saveSelector).hide();
-            }
-            $(options.editorControlsSelector).hide();
-            $(allEditSelector).attr("contenteditable",null);
 
             event.preventDefault();
             return false;
